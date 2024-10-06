@@ -2,8 +2,8 @@
   "site": {
     "url": "https://cress.pro",
     "title": "cress.pro",
-    "description": "这是Cress的个人博客",
-    "keywords": "cress,blog,Astro,Vercel,博客",
+    "description": "Cress的个人博客",
+    "keywords": "cress,blog,coffee,coffee roaster,roasting,Astro,Vercel,博客",
     "lang": "zh-CN",
     "favicon": "/favicon.ico",
     "appleTouchIcon": "/apple-touch-icon.png"
@@ -11,12 +11,12 @@
   "author": {
     "name": "cress",
     "twitterId": "@cress404",
-    "avatar": "https://s2.loli.net/2024/04/30/ozsnuS5Ihf3xMBG.webp"
+    "avatar": "https://s2.loli.net/2024/10/07/MGuSW19UZxYgTDa.jpg"
   },
   "hero": {
-    "name": "cress.pro",
-    "bio": "这是Cress的个人博客",
-    "description": "Coffee, Geek, Writings.",
+    "name": "cress",
+    "bio": "Also a Product Manager and Life Hacker.",
+    "description": "余生は休日 ᕦ(ò_óˇ)ᕤ",
     "socials": [
       {
         "name": "Github",
@@ -31,13 +31,25 @@
         "color": "rgb(36, 46, 54)"
       },
       {
+        "name": "instagram",
+        "icon": "icon-instagram",
+        "url": "https://instagram/kuresu",
+        "color": "rgb(36, 46, 54)"
+      },
+      {
+        "name": "douban",
+        "icon": "icon-douban",
+        "url": "https://www.douban.com/people/cress/",
+        "color": "rgb(36, 46, 54)"
+      },
+      {
         "name": "Email",
         "icon": "icon-mail",
         "url": "mailto:cress@duran.im",
         "color": "rgb(212, 70, 56)"
       }
     ],
-    "yiyan": "当第一颗卫星飞向大气层外，我们便以为自己终有一日会征服宇宙。"
+    "yiyan": "世界和平。"
   },
   "color": {
     "accent": [
@@ -95,7 +107,7 @@
     "perPage": 10
   },
   "footer": {
-    "startTime": "2024-04-14T00:00:00Z"
+    "startTime": "2004-10-08T00:00:00Z"
   },
   "waline": {
     "serverURL": "https://waline.lxchapu.com"

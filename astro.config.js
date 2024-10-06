@@ -17,6 +17,7 @@ import { site } from './src/config.json'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import swup from '@swup/astro'
+import { Analytics } from '@vercel/analytics/react'
 
 // https://astro.build/config
 export default defineConfig({
@@ -55,4 +56,8 @@ export default defineConfig({
       },
     },
   },
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
 })
