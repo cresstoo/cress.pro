@@ -7,7 +7,7 @@ category: 咖啡
 summary: 喜欢/使用/用过的设备
 ---
 
-喜欢/使用/用过的设备
+更新中
 
 ## 烘焙机
 
@@ -75,7 +75,7 @@ Kono
 
 Kalita Wave
 
-## 书籍
+## 证书
 
 CQI Q-Grader 国际咖啡品鉴师
 
