@@ -3,7 +3,7 @@ title: 世界上最好的青椒肉丝
 date: 2015-08-27 01:01:53
 lastMod: 2024-10-07T07:29:49.820Z
 tags: [Food, Non-fiction]
-category: 写作
+category: 写东西
 summary: 要始终如一地炒出一盘极致鲜嫩的青椒肉丝，是一件极难的事。
 ---
 

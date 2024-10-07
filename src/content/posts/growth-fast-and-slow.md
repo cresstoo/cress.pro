@@ -2,8 +2,8 @@
 title: 失业庐中记：成长，快与慢
 date: 2018-03-12 18:13:38
 lastMod: 2024-10-07T07:29:49.820Z
-tags: [career, company]
-category: 写作
+tags: [Career, Company]
+category: 笔记
 summary: 正式主动失业了，想利用这段间歇期好好反思下自己的职业生涯，并不是线性叙事。
 ---
 

@@ -3,7 +3,7 @@ title: 人生中的最美好往往不必偿还
 date: 2019-10-28 14:29:43
 lastMod: 2024-10-07T07:29:49.820Z
 tags: [Review, Movie]
-category: 写作
+category: 写东西
 summary: 《少年的你》观后。
 ---
 

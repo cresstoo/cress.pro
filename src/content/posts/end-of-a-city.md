@@ -2,8 +2,8 @@
 title: 一座城的尽头
 date: 2008-05-05 18:08:22
 lastMod: 2024-10-07T07:29:49.820Z
-tags: [non-fiction]
-category: 写作
+tags: [Non-fiction]
+category: 写东西
 summary: 一座城它可以有尽头，这尽头也可以不再是城。
 ---
 

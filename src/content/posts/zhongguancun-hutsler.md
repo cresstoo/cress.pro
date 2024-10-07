@@ -1,9 +1,9 @@
 ---
-title: 北京故事之中关村倒爷
+title: 北京滴哥故事之中关村倒爷
 date: 2017-12-02 00:13:04
 lastMod: 2024-10-07T07:29:49.820Z
 tags: [Taxi-driver, Beijing, Non-fiction]
-category: 写作
+category: 写东西
 summary: 大叔66年的，父母是中科院的，家住中关村大院，但自己从小不爱读书，没上大学，90年代开始在中关村倒卖盗版光盘起家...
 ---
 

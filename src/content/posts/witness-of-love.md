@@ -2,8 +2,8 @@
 title: 第一次见到爱情
 date: 2010-07-25 20:54:36
 lastMod: 2024-10-07T07:29:49.820Z
-tags: [Non-fiction, childhood]
-category: 写作
+tags: [Non-fiction, Childhood]
+category: 写东西
 summary: 第一次见到爱情，应该是我不到6岁的时候。
 ---
 

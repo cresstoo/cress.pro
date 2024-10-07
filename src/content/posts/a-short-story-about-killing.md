@@ -3,7 +3,7 @@ title: 关于杀人的短片
 date: 2009-10-26
 lastMod: 2024-10-07T07:29:49.820Z
 tags: [Non-fiction, Childhood]
-category: 写作
+category: 写东西
 ---
 
 小时候，有个邻居家的小哥哥，因为小儿麻痹症从小就坐轮椅，但是很聪明，看过很多书，戴着厚厚的眼镜，好像什么都懂。

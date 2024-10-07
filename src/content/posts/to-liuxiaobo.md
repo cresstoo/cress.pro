@@ -2,8 +2,8 @@
 title: 迎向灵光消逝的年代
 date: 2017-07-13 23:52:59
 lastMod: 2024-10-07T07:29:49.820Z
-tags: [Non-fiction, liuxiaobo, media]
-category: 写作
+tags: [Non-fiction, LiuXiaobo, Media]
+category: 写东西
 ---
 
 在门户黄金时代做新闻值班编辑大概是件自认为“能力有多大责任就有多大”的工作，那时候确实是少数价值可以影响上亿人的价值，有段时间上大夜班，迎着晨光下班感觉自己深藏功与名。

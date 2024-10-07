@@ -3,7 +3,7 @@ title: 2119，清洁空气
 date: 2017-11-24 17:06:56
 lastMod: 2024-10-07T07:29:49.820Z
 tags: [Fiction, Smog]
-category: 写作
+category: 写东西
 summary: 2069年，大气和植被被一场事故严重污染，人类逐渐失去纯天然的清洁空气。
 ---
 
