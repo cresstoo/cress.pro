@@ -15,7 +15,7 @@
   },
   "hero": {
     "name": "cress",
-    "bio": "Also a Product Manager and Life Hacker.",
+    "bio": "A Product Manager and Life Hacker.",
     "description": "余生は休日 ᕦ(ò_óˇ)ᕤ",
     "socials": [
       {
@@ -78,27 +78,27 @@
   },
   "menus": [
     {
-      "name": "首页",
+      "name": "Top",
       "link": "/",
       "icon": "icon-pantone"
     },
     {
-      "name": "归档",
+      "name": "Blog",
       "link": "/archives",
       "icon": "icon-archive"
     },
     {
-      "name": "项目",
+      "name": "Projects",
       "link": "/projects",
       "icon": "icon-flask"
     },
     {
-      "name": "关于",
+      "name": "About",
       "link": "/about",
       "icon": "icon-ghost"
     },
     {
-      "name": "友链",
+      "name": "Links",
       "link": "/friends",
       "icon": "icon-hearts"
     }
@@ -110,7 +110,7 @@
     "startTime": "2004-10-08T00:00:00Z"
   },
   "waline": {
-    "serverURL": "https://waline.lxchapu.com"
+    "serverURL": "https://comments.cress.pro/"
   },
   "sponsor": {
     "wechat": "https://object.lxchapu.com/bed%2F2024%2F0507_6e3e8f73df2d4e6d.webp"

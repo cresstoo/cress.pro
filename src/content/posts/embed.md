@@ -28,5 +28,3 @@ summary: 这篇文章介绍了如何在文章中嵌入视频和代码。
 ```md
 ::bilibili{#BV1Mx4y1Y7pJ}
 ```
-
-::bilibili{#BV1Mx4y1Y7pJ}
