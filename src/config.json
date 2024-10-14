@@ -107,9 +107,9 @@
     "wechat": "https://object.lxchapu.com/bed%2F2024%2F0507_6e3e8f73df2d4e6d.webp"
   },
   "analytics": {
-    "enable": false,
+    "enable": true,
     "google": {
-      "measurementId": ""
+      "measurementId": "G-32NS8XTVS7"
     },
     "umami": {
       "serverUrl": "",
