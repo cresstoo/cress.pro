@@ -7,9 +7,11 @@ category: 咖啡
 summary: 喜欢/使用/用过的设备
 ---
 
-更新中
+草稿状态，慢更
 
 ## 烘焙机
+
+Stronghold S9X
 
 Stronghold S8X
 
@@ -25,25 +27,33 @@ Fujiroyal Discovery 200g
 
 HB-M200G
 
+……
+
 ## 测量仪器
 
-浓度仪
+浓度仪 Difluid R2
 
-Lightwell 100
+浓度仪 VST
 
-MD500 水份密度仪
+烘焙度仪 Lighttells CM-100
 
-水活度仪器
+烘焙度仪 Dipper KN
 
-粒径分布仪
+水份密度仪 Lighttells MD500
 
-## 杯测工具
+水份密度仪 Roastrite
 
-BH树脂杯测碗
+……
 
 ## 咖啡机
 
-Decent Espresso
+Decent Espresso DE1 / XL
+
+La Marzocco GS3
+
+Victoria Arduino Eagle One
+
+……
 
 ## 磨豆机
 
@@ -51,31 +61,59 @@ Ultra SSP HU
 
 Ditting 804
 
+Mahlkonig EK43 C/T
+
 Fiorenzato F83e
 
 Commander C40 MK4 + SU电动模块
 
-## 水壶
+1Zpresso ZP6
 
-Brewista 竞赛版
+Fujiroyal R220 鬼齿
 
-Brewista 经典
-
-Fellow Stage2代
+……
 
 ## 滤杯
 
-Hario V60 Switch
+Hario V60 / Switch
 
 山文 CT5
 
 April平底
 
+Origami
+
+Orea v3
+
+Lili
+
 Kono
 
 Kalita Wave
 
-## 证书
+……
+
+## 水壶
+
+Brewista 竞赛版
+
+Fellow Stage2
+
+三洋 CAFEC x Tsubame Wood
+
+……
+
+## 杯测工具
+
+BH树脂杯测碗
+
+……
+
+## 书籍
+
+……
+
+## 课程证书
 
 CQI Q-Grader 国际咖啡品鉴师
 
