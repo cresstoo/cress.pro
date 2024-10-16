@@ -92,6 +92,12 @@
       "name": "About",
       "link": "/about",
       "icon": "icon-ghost"
+    },
+
+    {
+      "name": "Links",
+      "link": "/friends",
+      "icon": "icon-hearts"
     }
   ],
   "posts": {
