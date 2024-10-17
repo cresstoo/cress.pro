@@ -39,7 +39,7 @@ summary: 通过法兰绒的应用来增强咖啡的触感，妙啊。
 
 磨豆机Acaia Orbit，双重研磨
 
-筛掉微粉，保留粗粉（830μ+）、细粉（250μ-830μ）
+筛掉微粉，保留粗粉 `(830μ+)` 、细粉 `(250μ-830μ)`
 
 #### 器具
 
@@ -47,9 +47,15 @@ summary: 通过法兰绒的应用来增强咖啡的触感，妙啊。
 
 下层法兰绒滤布
 
+#### 展演卡片
+
+一如既往朴实无华，甚至手写
+
+![2024-10-17 13.36.18.png](https://s2.loli.net/2024/10/18/iSrAl597GsxDOjo.png)
+
 #### 关于畠山大輝：
 
-公司：Bespoke Coffee Roaster （埼玉县）
+公司：[Bespoke Coffee Roaster](https://www.instagram.com/bespokecoffeeroasters/) （埼玉县）
 
 2024年 世界冲煮大赛 (WBrC) 亚军
 
