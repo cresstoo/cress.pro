@@ -1,10 +1,8 @@
 ---
 title: 自述
-description: 这是一份站长的自述报告，请查收。
+description: Hi there, I'm cress, a Coffee Roaster☕️ a Product Manager and Life Hacker.
 comments: false
 ---
-
-> Hi there, I'm cress, a Coffee Roaster☕️ a Product Manager and Life Hacker.
 
 「cress」是大学时代开启的网名沿用至今，咖啡的场合使用「杜然」的名字 ，可以叫我cress或者杜然。
 
