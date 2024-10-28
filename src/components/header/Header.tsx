@@ -51,8 +51,11 @@ export function Header() {
   }, [lastScrollY])
 
   return (
-    <header
+    <motion.header
       className="fixed top-0 left-0 right-0 z-50 h-16 bg-primary/80 backdrop-blur border-b border-primary"
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -64 }}
+      transition={{ duration: 0.2 }}
     >
       <BluredBackground />
       <div className="max-w-[1100px] h-full md:px-4 mx-auto grid grid-cols-[64px_auto_64px]">
@@ -75,6 +78,6 @@ export function Header() {
           <SearchButton />
         </div>
       </div>
-    </header>
+    </motion.header>
   )
 }

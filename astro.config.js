@@ -87,15 +87,16 @@ export default defineConfig({
     },
   },
   image: {
-    service: { entrypoint: 'astro/assets/services/sharp' },
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limitInputPixels: false,
+      },
+    },
     domains: ['s2.loli.net', 'raw.githubusercontent.com'],
-    // 优化图片配置
-    format: ['avif', 'webp'],
-    fallback: 'png',
+    format: ['webp'],
+    fallback: 'jpeg',
     quality: 80,
-    cacheDir: './.cache/image',
-    // 添加响应式尺寸
-    sizes: [640, 768, 1024, 1280],
   },
   prefetch: true,
   // 添加性能优化配置

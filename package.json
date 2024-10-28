@@ -61,6 +61,7 @@
     "micromark-util-symbol": "^2.0.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.13.0",
+    "sharp": "^0.33.5",
     "simple-git-hooks": "^2.11.1"
   },
   "simple-git-hooks": {
