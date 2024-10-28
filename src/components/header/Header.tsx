@@ -8,7 +8,7 @@ import { HeaderMeta } from './HeaderMeta'
 import { HeaderDrawer } from './HeaderDrawer'
 import { useIsMobile } from './hooks'
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export function Header() {
   const isMobile = useIsMobile()
@@ -51,11 +51,8 @@ export function Header() {
   }, [lastScrollY])
 
   return (
-    <motion.header
+    <header
       className="fixed top-0 left-0 right-0 z-50 h-16 bg-primary/80 backdrop-blur border-b border-primary"
-      initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : -64 }}
-      transition={{ duration: 0.2 }}
     >
       <BluredBackground />
       <div className="max-w-[1100px] h-full md:px-4 mx-auto grid grid-cols-[64px_auto_64px]">
@@ -64,14 +61,11 @@ export function Header() {
         </div>
         <div className="relative flex items-center justify-center">
           {pageTitle ? (
-            <motion.h1 
+            <h1 
               className="text-lg font-bold truncate"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
             >
               {pageTitle}
-            </motion.h1>
+            </h1>
           ) : (
             isMobile ? <AnimatedLogo /> : <HeaderContent />
           )}
@@ -81,6 +75,6 @@ export function Header() {
           <SearchButton />
         </div>
       </div>
-    </motion.header>
+    </header>
   )
 }

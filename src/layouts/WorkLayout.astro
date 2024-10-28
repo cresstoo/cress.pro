@@ -29,7 +29,7 @@ const jsonLd = {
 ---
 
 <PageLayout title={title} description={description} image={cover}>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article>
     {/* 顶部大通栏头图 */}
     <div class="w-full">
