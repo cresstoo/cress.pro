@@ -1,0 +1,33 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import WorkLayout from '@/layouts/WorkLayout.astro'
+
+interface Props {
+  work: CollectionEntry<'works'>
+}
+
+export async function getStaticPaths() {
+  const works = await getCollection('works')
+  console.log('Available works:', works.map(w => w.slug)) // 添加调试日志
+  
+  return works.map((work: CollectionEntry<'works'>) => ({
+    params: { slug: work.slug },
+    props: { work },
+  }))
+}
+
+const { work } = Astro.props
+const { Content } = await work.render()
+
+// 添加更多调试信息
+console.log('Rendering work:', {
+  slug: work.slug,
+  title: work.data.title,
+  contentType: typeof Content,
+  hasContent: !!Content
+})
+---
+
+<WorkLayout work={work}>
+  <Content />
+</WorkLayout>

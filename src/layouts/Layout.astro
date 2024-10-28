@@ -9,6 +9,7 @@ import {
 import { BackToTopFAB } from '@/components/BackToTopFAB'
 import { ToastContainer } from '@/components/ToastContainer'
 import { ModalStack } from '@/components/ui/modal'
+import { Header } from '@/components/header/Header'
 import { site } from '@/config.json'
 import '@/styles/global.css'
 
@@ -31,6 +32,7 @@ const { title, description, image } = Astro.props
     <PrintVersion />
   </head>
   <body>
+    <Header client:load />
     <slot />
 
     <BackToTopFAB client:only="react" />

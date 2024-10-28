@@ -24,12 +24,24 @@ export default defineConfig({
   integrations: [
     tailwind(),
     react(),
-    sitemap(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      // 自定义每个页面的配置
+      customPages: [
+        {
+          url: '/works',
+          changefreq: 'weekly',
+          priority: 0.8,
+          lastmod: new Date(),
+        },
+      ],
+    }),
     swup({
       theme: false,
       animationClass: 'swup-transition-',
       containers: ['main'],
-      morph: ['[component-export="Provider"]'],
     }),
   ],
   markdown: {
@@ -52,7 +64,42 @@ export default defineConfig({
     build: {
       rollupOptions: {
         external: ['/pagefind/pagefind.js'],
+        // 分块策略
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+            ui: ['framer-motion', 'jotai'],
+          },
+        },
+      },
+      // 压缩选项
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
       },
     },
+    // 开发服务器配置
+    server: {
+      hmr: {
+        overlay: false,
+      },
+    },
+  },
+  image: {
+    service: { entrypoint: 'astro/assets/services/sharp' },
+    domains: ['s2.loli.net', 'raw.githubusercontent.com'],
+    // 优化图片配置
+    format: ['avif', 'webp'],
+    fallback: 'png',
+    quality: 80,
+    cacheDir: './.cache/image',
+    // 添加响应式尺寸
+    sizes: [640, 768, 1024, 1280],
+  },
+  prefetch: true,
+  // 添加性能优化配置
+  build: {
+    inlineStylesheets: 'auto', // 内联关键 CSS
   },
 })

@@ -1,0 +1,77 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import { site } from '@/config.json'
+import { Image } from 'astro:assets'
+
+const projects = await getCollection('projects')
+const sortedProjects = [...projects].sort((a, b) => {
+  return (a.data.order || 0) - (b.data.order || 0)
+})
+
+// SEO 元数据
+const title = "Works & Projects"
+const description = "A collection of my design works and projects, including branding, UI/UX, and visual design."
+const ogImage = new URL("/og-works.jpg", site.url).toString()
+
+// 添加结构化数据
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": title,
+  "description": description,
+  "url": new URL("/works", site.url).toString(),
+  "image": ogImage,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": sortedProjects.map((project, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": project.data.link,
+      "name": project.data.title,
+      "description": project.data.description,
+      "image": project.data.image
+    }))
+  }
+}
+---
+
+<Layout 
+  title={title}
+  description={description}
+  image={ogImage}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <main class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" data-pagefind-body>
+    <h1 class="mb-16 text-4xl font-bold">{title}</h1>
+    
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {sortedProjects.map((project, index) => (
+        <a 
+          href={project.data.link}
+          class="group relative overflow-hidden rounded-lg"
+          target={project.data.link.startsWith('http') ? '_blank' : undefined}
+          rel={project.data.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+          data-pagefind-index-attrs="href"
+        >
+          {/* 使用 priority 属性优先加载首屏图片 */}
+          <Image
+            src={project.data.image}
+            alt={`${project.data.title} - Project Cover`}
+            class="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            width={800}
+            height={600}
+            loading={index < 3 ? "eager" : "lazy"}
+            decoding={index < 3 ? "sync" : "async"}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="absolute bottom-0 p-6 text-white">
+              <h2 class="text-xl font-semibold">{project.data.title}</h2>
+              <p class="mt-2 text-sm">{project.data.description}</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

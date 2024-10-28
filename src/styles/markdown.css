@@ -7,7 +7,7 @@
 }
 
 .markdown p {
-  @apply mb-5;
+  @apply mb-5 indent-8;
 }
 
 .markdown h1 {

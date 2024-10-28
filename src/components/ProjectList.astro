@@ -1,33 +1,52 @@
 ---
 import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
 
 const projects = await getCollection('projects')
+const sortedProjects = [...projects].sort((a, b) => {
+  return (a.data.order || 0) - (b.data.order || 0)
+})
 ---
 
 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
-  {
-    projects.map((project) => (
-      <li>
-        <a href={project.data.link} target="_blank" rel="noopener noreferrer external">
-          <div class="rounded-lg bg-accent/10 overflow-hidden group">
-            <div class="aspect-video overflow-hidden">
-              <img
-                class="size-full object-cover transition-transform group-hover:scale-110"
-                src={project.data.image}
-                alt={`Project cover: ${project.data.title}`}
-                loading="lazy"
-              />
-            </div>
-            <div class="p-4">
-              <div class="group-hover:text-accent">
-                <span class="text-xl font-bold">{project.data.title}</span>
-                <i class="ml-2 iconfont icon-external-link" />
-              </div>
-              <p class="mt-2 text-sm line-clamp-2">{project.data.description}</p>
-            </div>
+  {sortedProjects.map((project, index) => (
+    <li>
+      <a href={project.data.link} target="_blank" rel="noopener noreferrer external">
+        <div class="rounded-lg bg-accent/10 overflow-hidden group">
+          <div class="aspect-video overflow-hidden relative">
+            {/* 使用 Astro Image 组件 */}
+            <Image
+              src={project.data.image}
+              alt={`Project cover: ${project.data.title}`}
+              class="size-full object-cover transition-transform group-hover:scale-110"
+              width={800}
+              height={450}
+              loading={index < 2 ? "eager" : "lazy"}
+              decoding={index < 2 ? "sync" : "async"}
+            />
           </div>
-        </a>
-      </li>
-    ))
-  }
+          <div class="p-4">
+            <div class="group-hover:text-accent">
+              <span class="text-xl font-bold">{project.data.title}</span>
+              <i class="ml-2 iconfont icon-external-link" />
+            </div>
+            <p class="mt-2 text-sm line-clamp-2">{project.data.description}</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  ))}
 </ul>
+
+<style>
+  /* 添加淡入动画 */
+  img {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+</style>

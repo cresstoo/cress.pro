@@ -1,5 +1,6 @@
 ---
 import { site, author } from '@/config.json'
+import { getCollection } from 'astro:content'
 
 interface Props {
   title?: string
@@ -8,17 +9,60 @@ interface Props {
 }
 
 const { title = site.title, description = site.description, image } = Astro.props
-
 const titleWithSiteSuffix = title === site.title ? title : `${title} - ${site.title}`
+
+// 获取首页需要预加载的图片
+const projects = await getCollection('projects')
+const sortedProjects = projects.sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+const firstThreeImages = sortedProjects.slice(0, 3).map(p => p.data.image)
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- 预加载字体 -->
+<link 
+  rel="preload" 
+  href="/fonts/iconfont.woff2" 
+  as="font" 
+  type="font/woff2" 
+  crossorigin="anonymous"
+/>
+
+<!-- 仅在需要时预加载正文字体 -->
+{Astro.url.pathname.startsWith('/posts/') && (
+  <>
+    <link 
+      rel="preload" 
+      href="/fonts/atkinson-regular.woff" 
+      as="font" 
+      type="font/woff" 
+      crossorigin="anonymous"
+    />
+    <link 
+      rel="preload" 
+      href="/fonts/atkinson-bold.woff" 
+      as="font" 
+      type="font/woff" 
+      crossorigin="anonymous"
+    />
+  </>
+)}
+
+<!-- 预加载首页关键图片 -->
+{Astro.url.pathname === '/' && firstThreeImages.map(img => (
+  <link 
+    rel="preload" 
+    href={img} 
+    as="image"
+    type={img.endsWith('.png') ? 'image/png' : 'image/jpeg'}
+    fetchpriority="high"
+  />
+))}
+
 <link rel="apple-touch-icon" sizes="180x180" href={site.appleTouchIcon} />
 <link rel="icon" href={site.favicon} />
-<!-- L'Internationale, 
-  Sera le genre humain. -->
+
 <title>{titleWithSiteSuffix}</title>
 <meta name="author" content={author.name} />
 <meta name="description" content={description} />
@@ -45,3 +89,15 @@ const titleWithSiteSuffix = title === site.title ? title : `${title} - ${site.ti
   title={site.title}
   href={new URL('/rss.xml', Astro.url)}
 />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": author.name
+  },
+  "url": new URL(Astro.url.pathname, Astro.site).toString()
+})} />

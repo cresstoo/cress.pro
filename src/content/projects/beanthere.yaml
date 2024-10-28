@@ -1,0 +1,9 @@
+title: "Bean.there()"
+description: "这是我的第一家咖啡烘焙品牌。"
+image: "https://s2.loli.net/2024/10/29/rDUA7dB9ybLXWFx.jpg"
+link: "/works/beanthere"  # 修改为 /works/ 路径
+order: 2  # 添加排序值，数字越小排在越前面
+
+
+
+

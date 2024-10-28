@@ -4,20 +4,30 @@
 @import './signature.css';
 @import './swup.css';
 
+/* 图标字体 */
+@font-face {
+  font-family: 'iconfont';
+  src: url('/fonts/iconfont.woff2') format('woff2');
+  font-display: block; /* 图标字体使用 block 避免闪烁 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 正文字体 */
 @font-face {
   font-family: 'Atkinson';
   src: url('/fonts/atkinson-regular.woff') format('woff');
-  font-weight: 400;
+  font-display: swap; /* 正文字体使用 swap 优先显示 */
+  font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Atkinson';
   src: url('/fonts/atkinson-bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
   font-display: swap;
+  font-weight: bold;
+  font-style: normal;
 }
 
 ::selection {

@@ -85,15 +85,18 @@
     {
       "name": "Blog",
       "link": "/archives",
-      "icon": "icon-archive"
+      "icon": "icon-pen"
     },
-
+    {
+      "name": "Projects",
+      "link": "/projects",
+      "icon": "icon-flask"
+    },
     {
       "name": "About",
       "link": "/about",
       "icon": "icon-ghost"
     },
-
     {
       "name": "Links",
       "link": "/friends",

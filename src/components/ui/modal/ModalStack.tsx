@@ -10,7 +10,12 @@ export function ModalStack() {
     <AnimatePresence>
       {modalStack.map((modal, index) => (
         <Modal key={modal.id} index={index} id={modal.id}>
-          {modal.content}
+          <DialogContent aria-describedby="modal-description">
+            <DialogTitle>Modal Title</DialogTitle>
+            <div id="modal-description">
+              {/* 内容 */}
+            </div>
+          </DialogContent>
         </Modal>
       ))}
     </AnimatePresence>

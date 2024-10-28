@@ -6,7 +6,7 @@ comments: false
 
 「cress」是大学时代开启的网名沿用至今，咖啡的场合使用「杜然」的名字 ，可以叫我cress或者杜然。
 
-中年退休产品经理转生咖啡锅炉工，拥有一只[黑猫](https://www.instagram.com/p/B0iv-ztgHm7/)。INTP-J+[RAI](https://zh.wikipedia.org/wiki/霍爾蘭六邊形)，She/Her🌈，大概因为有ADHD好奇心爆棚，喜欢捣鼓各种东西（并未掌握编程すみません）。曾经的梦想是成为一名手工艺人，所以现在是咖啡烘焙师，梦想是在日本近郊拥有一家咖啡烘焙工作室，目前正在学习日语。
+中年退休产品经理转生咖啡锅炉工，拥有一只[黑猫](https://www.instagram.com/p/B0iv-ztgHm7/)。INTP-J+[RAI](https://zh.wikipedia.org/wiki/霍爾蘭六邊形)，She/Her🌈，大概因为有ADHD好奇心爆棚，喜欢捣鼓各种东西。曾经的梦想是成为一名手工艺人，所以现在是咖啡烘焙师，梦想是在日本近郊拥有一家咖啡烘焙工作室，目前正在学习日语。
 
 ## 爱好
 
@@ -19,6 +19,28 @@ comments: false
 - 邦乐/数摇/电子/爵士
 
 - 偶尔写点东西
+
+## Skills
+
+- SCA Roasting Professional
+- SCA Barista/Brewing Intermediate
+- CQI Q Arabica Grader
+- Product Management
+- UX/UI Design
+- Branding
+- Screenwriting
+- Markdown
+- HTML+CSS+Javascript
+
+## 语言
+
+- 普通话
+
+- 英语
+
+- 日语 N3
+
+- ~~意大利语 A2~~
 
 ## 移住轨迹
 
