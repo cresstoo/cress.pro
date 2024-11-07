@@ -11,13 +11,9 @@ comments: false
 ## 爱好
 
 - 精品咖啡的一切
-
 - 自由行及深度旅游
-
 - 高效率数字生活
-
 - 邦乐/数摇/电子/爵士
-
 - 偶尔写点东西
 
 ## Skills
@@ -35,33 +31,22 @@ comments: false
 ## 语言
 
 - 普通话
-
 - 英语
-
 - 日语 N3
-
 - ~~意大利语 A2~~
 
 ## 移住轨迹
 
 - 2004-2010：北京
-
 - 2010-2013：上海
-
 - 2013-2019：北京
-
 - 2020-2023：成都
-
 - 2023-2025：深圳
-
 - 2025-？：东京
 
 ## 本站黑历史
 
 - 2004-2007，从blogcn开始blog生涯，折腾了中国大陆台湾日本美国大概20几个博客服务商
-
 - 2007-2014，加入[神秘组织GeoWHY](https://site.douban.com/geowhy/room/13493/)，蹭到美国主机，使用Wordpress发布，注册域名supercress.cn
-
 - 2014-2024，学习使用Hexo构建静态博客，托管在Github Pages，注册域名[duran.im](http://duran.im)
-
 - 2024至今，迁移到Astro+Vercel自动部署，注册域名[cress.pro](https://cress.pro)
