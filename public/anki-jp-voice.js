@@ -21,56 +21,7 @@
     init() {
       if (this.initialized) return
       this.initialized = true
-      this.initStyle()
       this.startObserving()
-    }
-
-    // 添加样式
-    initStyle() {
-      const style = document.createElement('style')
-      style.textContent = `
-                .play-button {
-                    background: transparent;
-                    border: none;
-                    cursor: pointer;
-                    padding: 0;
-                    margin-left: 8px;
-                    vertical-align: middle;
-                    transition: transform 0.2s;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .play-button:hover {
-                    transform: scale(1.1);
-                }
-
-                .play-button:active {
-                    transform: scale(0.95);
-                }
-
-                .play-button.playing {
-                    opacity: 0.5;
-                    pointer-events: none;
-                }
-
-                .speaker-icon {
-                    width: 24px;
-                    height: 24px;
-                    fill: #4a90e2;
-                }
-
-                .nightMode .speaker-icon {
-                    fill: #7ab3ff;
-                }
-
-                .tts-manual, .tts-auto {
-                    display: inline-flex;
-                    align-items: center;
-                }
-            `
-      document.head.appendChild(style)
     }
 
     // 清理HTML标签
@@ -88,6 +39,26 @@
         '<svg class="speaker-icon" viewBox="0 0 24 24"><path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/></svg>'
       button.onclick = () => this.play(text)
       return button
+    }
+
+    // 处理新元素
+    processElement(el) {
+      if (!el.querySelector('.play-button')) {
+        const text = this.stripHtml(el.textContent.trim())
+        // 创建文本容器
+        const textContainer = document.createElement('div')
+        textContainer.className = 'text-content'
+        textContainer.textContent = text
+
+        // 清空原有内容并添加新的结构
+        el.textContent = ''
+        el.appendChild(textContainer)
+        el.appendChild(this.createButton(text))
+
+        if (el.classList.contains('tts-auto')) {
+          setTimeout(() => this.play(text), this.autoPlayDelay)
+        }
+      }
     }
 
     // 播放功能
@@ -116,19 +87,6 @@
         alert('播放失败，请检查网络连接')
         const buttons = document.querySelectorAll('.play-button')
         buttons.forEach((btn) => btn.classList.remove('playing'))
-      }
-    }
-
-    // 处理新元素
-    processElement(el) {
-      if (!el.querySelector('.play-button')) {
-        const text = this.stripHtml(el.textContent.trim())
-        const button = this.createButton(text)
-        el.appendChild(button)
-
-        if (el.classList.contains('tts-auto')) {
-          setTimeout(() => this.play(text), this.autoPlayDelay)
-        }
       }
     }
 
