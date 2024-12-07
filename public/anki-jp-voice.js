@@ -24,19 +24,18 @@ if (typeof window.AnkiJPVoice === 'undefined') {
 
     init() {
       console.log('开始初始化 TTS 按钮')
+
+      // 首先移除所有现有的 TTS 按钮
+      document.querySelectorAll('.' + this.config.buttonClass).forEach((button) => {
+        button.remove()
+      })
+
       // 查找所有 data-tts 元素
       const elements = document.querySelectorAll('[data-tts]')
       console.log('找到 TTS 元素数量:', elements.length)
 
       elements.forEach((element, index) => {
         console.log(`处理第 ${index + 1} 个元素:`, element.dataset.tts)
-
-        // 检查是否已经有按钮
-        const nextElement = element.nextElementSibling
-        if (nextElement && nextElement.classList.contains(this.config.buttonClass)) {
-          console.log('按钮已存在，跳过')
-          return
-        }
 
         // 创建按钮
         const button = document.createElement('button')
@@ -46,6 +45,7 @@ if (typeof window.AnkiJPVoice === 'undefined') {
         // 添加点击事件
         button.onclick = async (e) => {
           e.preventDefault()
+          e.stopPropagation()
           if (button.classList.contains(this.config.disabledClass)) {
             return
           }
