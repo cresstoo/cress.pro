@@ -15,15 +15,26 @@
     ERROR: 'error',
   }
 
-  class ankiJPVoice {
+  class AnkiJPVoice {
     constructor(options = {}) {
       this.key = options.key || 'e-a9G2o619X372w'
       this.speaker = options.speaker || 14
-      this.autoPlayDelay = options.autoPlayDelay || 100
+      this.autoPlayDelay = options.autoPlayDelay || 500
       this.initialized = false
       this.audioCache = new Map()
       this.currentAudio = null
-      this.init()
+      this.lastPlayTime = 0
+      this.cooldown = options.cooldown || 1000 // 播放冷却时间（毫秒）
+
+      // 清理缓存
+      this.cleanupCache()
+
+      // 初始化
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => this.init())
+      } else {
+        this.init()
+      }
     }
 
     init() {
@@ -95,39 +106,14 @@
 
     // 处理所有 TTS 标记
     processAllTTSMarks() {
-      // 处理 {{jp:文本}} 格式的标记
-      this.processTTSMarks()
-
-      // 处理 {{jp-auto:文本}} 格式的标记
-      this.processAutoTTSMarks()
-    }
-
-    // 处理 {{jp:文本}} 标记
-    processTTSMarks() {
-      const jpRegex = /{{jp:(.*?)}}/g
-      document.body.innerHTML = document.body.innerHTML.replace(jpRegex, (match, text) => {
-        return `<span class="tts-text">${text}</span>`
-      })
-
-      // 为所有 tts-text 添加按钮
-      document.querySelectorAll('.tts-text').forEach((el) => {
+      // 处理带有 data-tts 属性的元素
+      document.querySelectorAll('[data-tts]').forEach((el) => {
         if (!el.nextElementSibling?.classList.contains('tts-button')) {
-          el.insertAdjacentElement('afterend', this.createButton())
-        }
-      })
-    }
-
-    // 处理 {{jp-auto:文本}} 标记
-    processAutoTTSMarks() {
-      const jpAutoRegex = /{{jp-auto:(.*?)}}/g
-      document.body.innerHTML = document.body.innerHTML.replace(jpAutoRegex, (match, text) => {
-        return `<span class="tts-text tts-auto">${text}</span>`
-      })
-
-      // 为所有 tts-auto 添加按钮
-      document.querySelectorAll('.tts-text.tts-auto').forEach((el) => {
-        if (!el.nextElementSibling?.classList.contains('tts-button')) {
-          el.insertAdjacentElement('afterend', this.createButton())
+          const button = this.createButton()
+          if (el.getAttribute('data-tts-auto') === 'true') {
+            button.setAttribute('data-auto', 'true')
+          }
+          el.insertAdjacentElement('afterend', button)
         }
       })
     }
@@ -144,19 +130,20 @@
         }
 
         const textElement = trigger.previousElementSibling
-        if (!textElement?.classList.contains('tts-text')) return
+        if (!textElement?.hasAttribute('data-tts')) return
 
-        await this.play(textElement.textContent.trim(), trigger)
+        const text = textElement.getAttribute('data-tts') || textElement.textContent.trim()
+        await this.play(text, trigger)
       })
     }
 
     handleAutoPlay() {
-      const autoElements = document.querySelectorAll('.tts-auto')
-      autoElements.forEach((el) => {
+      document.querySelectorAll('[data-tts][data-tts-auto="true"]').forEach((el) => {
         setTimeout(() => {
           const trigger = el.nextElementSibling
           if (trigger?.classList.contains('tts-button')) {
-            this.play(el.textContent.trim(), trigger)
+            const text = el.getAttribute('data-tts') || el.textContent.trim()
+            this.play(text, trigger)
           }
         }, this.autoPlayDelay)
       })
@@ -192,9 +179,17 @@
     }
 
     async play(text, trigger) {
+      if (!text) return
+
+      const now = Date.now()
+      if (now - this.lastPlayTime < this.cooldown) {
+        return
+      }
+
       try {
         this.stopPlayback()
         this.updateButtonStatus(trigger, STATUS.LOADING)
+        this.lastPlayTime = now
 
         let audioUrl
         if (this.audioCache.has(text)) {
@@ -207,35 +202,42 @@
         const audio = new Audio(audioUrl)
         this.currentAudio = audio
 
-        audio.onplay = () => {
+        audio.addEventListener('playing', () => {
           this.updateButtonStatus(trigger, STATUS.PLAYING)
-        }
+        })
 
-        audio.onended = () => {
+        audio.addEventListener('ended', () => {
           this.updateButtonStatus(trigger, STATUS.IDLE)
           this.currentAudio = null
-        }
+        })
 
-        audio.onerror = () => {
-          this.handleError(trigger, '音频播放失败')
-        }
+        audio.addEventListener('error', () => {
+          this.updateButtonStatus(trigger, STATUS.ERROR)
+          this.currentAudio = null
+          this.audioCache.delete(text)
+        })
 
         await audio.play()
       } catch (error) {
-        this.handleError(trigger, error.message)
+        console.error('播放失败:', error)
+        this.updateButtonStatus(trigger, STATUS.ERROR)
+        this.audioCache.delete(text)
       }
     }
 
-    handleError(trigger, message) {
-      console.error('TTS error:', message)
-      this.updateButtonStatus(trigger, STATUS.ERROR)
-      setTimeout(() => {
-        this.updateButtonStatus(trigger, STATUS.IDLE)
-      }, 2000)
-      this.currentAudio = null
+    // 清理缓存
+    cleanupCache() {
+      const lastCleanup = localStorage.getItem('tts_last_cleanup')
+      const now = Date.now()
+
+      if (!lastCleanup || now - parseInt(lastCleanup, 10) > 86400000) {
+        // 24小时
+        this.audioCache.clear()
+        localStorage.setItem('tts_last_cleanup', now.toString())
+      }
     }
   }
 
-  // 自动创建实例
-  window.ankiJPVoice = new ankiJPVoice()
+  // 导出到全局
+  window.AnkiJPVoice = AnkiJPVoice
 })(window)
