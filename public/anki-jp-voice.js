@@ -3,8 +3,9 @@
 // Author: cress
 // License: MIT
 
-class AnkiJPVoice {
+window.AnkiJPVoice = class {
   constructor(config) {
+    console.log('初始化 AnkiJPVoice')
     this.config = {
       key: config.key || '',
       speaker: config.speaker || 14,
@@ -15,15 +16,20 @@ class AnkiJPVoice {
     }
 
     this.lastPlayTime = 0
-    this.init()
+
+    // 延迟初始化，确保 DOM 已经准备好
+    setTimeout(() => this.init(), 100)
   }
 
   init() {
+    console.log('开始初始化 TTS 按钮')
     // 查找所有 data-tts 元素
     const elements = document.querySelectorAll('[data-tts]')
     console.log('找到 TTS 元素数量:', elements.length)
 
-    elements.forEach((element) => {
+    elements.forEach((element, index) => {
+      console.log(`处理第 ${index + 1} 个元素:`, element.dataset.tts)
+
       // 创建按钮
       const button = document.createElement('button')
       button.className = this.config.buttonClass
@@ -42,11 +48,15 @@ class AnkiJPVoice {
 
       // 插入按钮
       element.insertAdjacentElement('afterend', button)
+      console.log('按钮已插入')
 
       // 处理自动播放
       if (element.hasAttribute('data-tts-auto')) {
-        console.log('发现自动播放元素:', element.dataset.tts)
-        setTimeout(() => this.speak(element.dataset.tts), this.config.autoPlayDelay)
+        console.log('发现自动播放元素，延迟:', this.config.autoPlayDelay)
+        setTimeout(() => {
+          console.log('执行自动播放:', element.dataset.tts)
+          this.speak(element.dataset.tts)
+        }, this.config.autoPlayDelay)
       }
     })
   }
