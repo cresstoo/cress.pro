@@ -2,5 +2,5 @@ title: "Github-Card-Azzura"
 description: "A simple github card theme modified from octocard."
 image: "https://raw.githubusercontent.com/cresstoo/github-card-theme/refs/heads/master/github-slim.png"
 link: "https://github.com/cresstoo/github-card-theme"
-order: 4  # 添加排序值，数字越小排在越前面
+order: 5  # 添加排序值，数字越小排在越前面
 
